@@ -1,0 +1,8 @@
+flask
+transformers
+gradio
+gunicorn
+python-dotenv
+google-genai
+torch
+requests

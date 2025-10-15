@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Writing Assistant</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="app-title"><i class="fas fa-pencil-alt"></i> AI Writing Assistant</h1>
+        </header>
+
+        <section class="card grammar-section">
+            <h2 class="card-title">Grammar & Style Check</h2>
+            <div class="input-group">
+                <textarea id="grammarInput" placeholder="Type or paste text here for correction..." rows="5"></textarea>
+                <button id="correctButton" class="action-button primary">
+                    <i class="fas fa-magic"></i> Check Grammar
+                </button>
+            </div>
+            <div class="output-group">
+                <h3>Corrected Text:</h3>
+                <textarea id="grammarOutput" readonly rows="5"></textarea>
+            </div>
+        </section>
+
+        <section class="card sentiment-section">
+            <h2 class="card-title">Sentiment Analysis</h2>
+            <div class="input-group">
+                <textarea id="sentimentInput" placeholder="Enter text to analyze sentiment..." rows="3"></textarea>
+                <button id="analyzeButton" class="action-button secondary">
+                    <i class="fas fa-smile-beam"></i> Analyze Sentiment
+                </button>
+            </div>
+            <div class="output-group">
+                <h3>Sentiment Result:</h3>
+                <textarea id="sentimentOutput" readonly rows="3"></textarea>
+            </div>
+        </section>
+
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+<style>
+  /* popup.css */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 380px; /* Compact width for extension popup */
+    background-color: #f0f2f5; /* Light subtle background */
+    color: #333;
+}
+
+.container {
+    padding: 15px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.app-title {
+    font-size: 1.4em;
+    color: #2c3e50;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-title i {
+    margin-right: 8px;
+    color: #4CAF50; /* Brand color */
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    padding: 18px;
+    border: 1px solid #e9eef2;
+}
+
+.card-title {
+    font-size: 1.1em;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f2f5;
+    padding-bottom: 10px;
+}
+
+.input-group,
+.output-group {
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: calc(100% - 16px); /* Full width accounting for padding */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 0.9em;
+    color: #495057;
+    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box; 
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.action-button {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.action-button i {
+    margin-right: 8px;
+}
+
+.action-button.primary {
+    background-color: #4CAF50; /* Green (Grammar) */
+    color: white;
+}
+
+.action-button.primary:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+    transform: translateY(-1px);
+}
+
+.action-button.secondary {
+    background-color: #007bff; /* Blue (Sentiment) */
+    color: white;
+}
+
+.action-button.secondary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.output-group h3 {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+textarea[readonly] {
+    background-color: #e9ecef;
+    cursor: default;
+}
+</style>
+</html>
